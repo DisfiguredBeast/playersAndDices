@@ -12,5 +12,7 @@ namespace PlayersAndDices.TheDarkEye.Characters
         /// pull request change
         /// </summary>
         public int ID { get; set; }
+
+        public long dingDongTest { get; set; }
     }
 }
