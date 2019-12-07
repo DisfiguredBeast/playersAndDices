@@ -1,0 +1,30 @@
+.characters-container {
+  margin-left: 0;
+}
+
+.character-name {
+  display: inline-block;
+  background: none;
+  position: relative;
+}
+
+  .character-name:hover {
+    cursor:pointer
+  }
+
+  .character-name::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: lightgray;
+    transform-origin: left;
+    transition: width 1s ease;
+    z-index: -1;
+  }
+
+  .character-name:hover::after {
+    width: 100%;
+  }

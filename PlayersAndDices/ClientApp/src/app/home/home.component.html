@@ -1,0 +1,5 @@
+<div class="container">
+  <div *ngFor="let game of games" class="row fill-left-to-right game-row" style="--empty-color: none; --fill-color: lightgray">
+    <span routerLink="{{game.routerLink}}">{{game.name}}</span>
+  </div>
+</div>

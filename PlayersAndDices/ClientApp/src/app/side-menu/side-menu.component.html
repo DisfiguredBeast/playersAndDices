@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a [routerLink]="['/']"><h2>Players and Dices</h2></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-nav-list>
+  <h5>Das Schwarze Auge</h5>
+  <a mat-list-item [routerLink]="['/the-dark-eye/characters']">Characters</a>
+  <a mat-list-item>Adventures</a>
+
+  <mat-divider></mat-divider>
+
+  <h5>Dungeons & Dragons</h5>
+  <a mat-list-item>Characters</a>
+  <a mat-list-item>Adventures</a>
+
+  <mat-divider></mat-divider>
+
+  <h5>Shadowrun</h5>
+  <a mat-list-item>Characters</a>
+  <a mat-list-item>Runs</a>
+</mat-nav-list>

@@ -1,0 +1,6 @@
+<button routerLink="the-dark-eye" mat-button [matMenuTriggerFor]="theDarkEye">The Dark Eye</button>
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #theDarkEye="matMenu">
+  <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
+  <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
+</mat-menu>

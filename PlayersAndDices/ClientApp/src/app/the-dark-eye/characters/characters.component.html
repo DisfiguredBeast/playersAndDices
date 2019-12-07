@@ -1,0 +1,15 @@
+<h1>Heroes</h1>
+
+<div class="container characters-container">
+  <div class="row" *ngFor="let char of characters">
+    <div class="col-md-6 character-name">
+      <span>{{char.name}}</span>
+    </div>
+  </div>
+
+  <div class="row" [routerLink]="['/the-dark-eye/characters/creation']">
+    <div class="col-md-6 character-name">
+      <span><a>Create a new character</a></span>
+    </div>
+  </div>
+</div>

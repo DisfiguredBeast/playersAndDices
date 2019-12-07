@@ -1,0 +1,16 @@
+<h1 id="tableLabel">Database</h1>
+
+<p *ngIf="!collections"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Collection</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let collection of collections">
+      <td>{{ collection }}</td>
+    </tr>
+  </tbody>
+</table>

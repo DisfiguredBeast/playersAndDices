@@ -1,0 +1,10 @@
+.game-row {
+    font-size: 3em;
+    margin-bottom: 14px;
+}
+  .game-row:hover {
+      text-decoration: none;
+  }
+  .game-row:not(:last-child) {
+      border-bottom: 1px solid lightgray;
+  }
