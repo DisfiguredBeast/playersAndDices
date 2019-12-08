@@ -12,6 +12,7 @@ import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatRippleModule } from "@angular/material/"
 import { MatSidenavContainer, MatSidenav, MatSidenavContent } from "@angular/material/sidenav"
 import { MatListModule } from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -25,7 +26,10 @@ import { TheDarkEyeCharacterCreationComponent } from "./the-dark-eye/character-c
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-
+import { WeaponsComponent } from './the-dark-eye/weapons/weapons.component';
+import { SwordsComponent } from './the-dark-eye/weapons/swords/swords.component';
+import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
+import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +45,11 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
         DatabaseComponent,
 
         TheDarkEyeCharactersComponent,
-        TheDarkEyeCharacterCreationComponent
+        TheDarkEyeCharacterCreationComponent,
+        WeaponsComponent,
+        SwordsComponent,
+        AxesComponent,
+        RangedComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,14 +61,21 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
       MatMenuModule,
     MatSnackBarModule,
       MatToolbarModule,
+      MatIconModule,
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-        { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-        { path: 'database', component: DatabaseComponent },
-        { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
-        { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'database', component: DatabaseComponent },
+      { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
+      { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+      { path: "the-dark-eye/weapons", component: WeaponsComponent, 
+          children: [
+            {path: "swords", component: SwordsComponent},
+            {path: "axes", component : AxesComponent},
+            {path: "ranged", component : RangedComponent}
+          ]}
     ]),
     BrowserAnimationsModule,
     MatListModule,
