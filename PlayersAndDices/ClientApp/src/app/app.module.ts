@@ -13,6 +13,8 @@ import { MatRippleModule } from "@angular/material/"
 import { MatSidenavContainer, MatSidenav, MatSidenavContent } from "@angular/material/sidenav"
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule  } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -30,12 +32,11 @@ import { WeaponsComponent } from './the-dark-eye/weapons/weapons.component';
 import { SwordsComponent } from './the-dark-eye/weapons/swords/swords.component';
 import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
 import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
+import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dialog/edit-ranged-dialog';
 
 @NgModule({
     declarations: [
-
         MatSidenavContainer, MatSidenav, MatSidenavContent,
-
         AppComponent,
         SideMenuComponent,
         NavMenuComponent,
@@ -43,25 +44,26 @@ import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component'
         CounterComponent,
         FetchDataComponent,
         DatabaseComponent,
-
         TheDarkEyeCharactersComponent,
         TheDarkEyeCharacterCreationComponent,
         WeaponsComponent,
         SwordsComponent,
         AxesComponent,
-        RangedComponent
+        RangedComponent,
+        EditRangedDialog
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
       ApiAuthorizationModule,
-
       MatButtonModule,
       MatMenuModule,
-    MatSnackBarModule,
+      MatSnackBarModule,
       MatToolbarModule,
       MatIconModule,
+      MatTableModule,
+      MatDialogModule ,
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -81,7 +83,11 @@ import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component'
     MatListModule,
     MatRippleModule,
   ],
+  entryComponents: [
+    EditRangedDialog, RangedComponent
+  ],
   providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
