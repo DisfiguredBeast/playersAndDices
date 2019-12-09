@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material/icon';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+
+  // constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  //   iconRegistry.addSvgIcon(
+  //     'bacteria',
+  //     sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/bacteria.svg'));
+  // }
 
   collapse() {
     this.isExpanded = false;

@@ -12,6 +12,9 @@ import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatRippleModule } from "@angular/material/"
 import { MatSidenavContainer, MatSidenav, MatSidenavContent } from "@angular/material/sidenav"
 import { MatListModule } from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule  } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -25,13 +28,15 @@ import { TheDarkEyeCharacterCreationComponent } from "./the-dark-eye/character-c
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-
+import { WeaponsComponent } from './the-dark-eye/weapons/weapons.component';
+import { SwordsComponent } from './the-dark-eye/weapons/swords/swords.component';
+import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
+import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
+import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dialog/edit-ranged-dialog';
 
 @NgModule({
     declarations: [
-
         MatSidenavContainer, MatSidenav, MatSidenavContent,
-
         AppComponent,
         SideMenuComponent,
         NavMenuComponent,
@@ -39,34 +44,50 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
         CounterComponent,
         FetchDataComponent,
         DatabaseComponent,
-
         TheDarkEyeCharactersComponent,
-        TheDarkEyeCharacterCreationComponent
+        TheDarkEyeCharacterCreationComponent,
+        WeaponsComponent,
+        SwordsComponent,
+        AxesComponent,
+        RangedComponent,
+        EditRangedDialog
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
       ApiAuthorizationModule,
-
       MatButtonModule,
       MatMenuModule,
-    MatSnackBarModule,
+      MatSnackBarModule,
       MatToolbarModule,
+      MatIconModule,
+      MatTableModule,
+      MatDialogModule ,
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-        { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-        { path: 'database', component: DatabaseComponent },
-        { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
-        { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'database', component: DatabaseComponent },
+      { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
+      { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+      { path: "the-dark-eye/weapons", component: WeaponsComponent, 
+          children: [
+            {path: "swords", component: SwordsComponent},
+            {path: "axes", component : AxesComponent},
+            {path: "ranged", component : RangedComponent}
+          ]}
     ]),
     BrowserAnimationsModule,
     MatListModule,
     MatRippleModule,
   ],
+  entryComponents: [
+    EditRangedDialog, RangedComponent
+  ],
   providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
