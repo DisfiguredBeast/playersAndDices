@@ -17,15 +17,20 @@ export interface Bow{
 
 export class EditRangedDialog {
 
-  ranged : Bow;
+  types:string[] = ["asdf", "bcdef"];
+  ranged : Bow = {name:"", description:""};
 
   enteredData : any;
   constructor (public dialogRef: MatDialogRef<EditRangedDialog>,
         @Inject(MAT_DIALOG_DATA) public data: RangedWeapon) { 
-          this.ranged = {name:"Zauberbogen", description:"eine beschreibung halt"};
+         
   }
 
   ngOnInit() {
+  }
+  
+  saveRanged(value:any){
+    console.log(value);
   }
 
   onClose() : void {
