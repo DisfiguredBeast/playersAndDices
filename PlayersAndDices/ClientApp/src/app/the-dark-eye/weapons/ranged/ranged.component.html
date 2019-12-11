@@ -1,12 +1,11 @@
 <h2><mat-icon>restore</mat-icon> Ranged wepons</h2>
 <br>
 <div>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table #rangedTable mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-      
-      
+ 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -31,7 +30,7 @@
       <br>
       <div align="right">
           <button mat-raised-button (click)="openDialog()">Add range weapon</button>
-        </div>
+      </div>
     </div>
       
       

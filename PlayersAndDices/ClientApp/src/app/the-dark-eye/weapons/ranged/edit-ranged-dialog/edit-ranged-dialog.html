@@ -1,1 +1,53 @@
-<p>edit-ranged-dialog works!</p>
+<div width="100%">
+    <div align="center">
+        <p>
+            <h2>Create a new ranged weapon</h2>
+
+        <form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="title" name="title"  [(ngModel)]="ranged.name" required/>
+                <div *ngIf="!title.valid && title.touched">FACK
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Beschreibung</label>
+                <textarea class="form-control" name="description" [(ngModel)]="ranged.description">
+                </textarea>
+            </div>
+            <button mat-raised-button type="submit" ngModel
+                [disabled]="!form.valid">Speichern
+            </button>
+        </form>
+
+
+        <table width="80%">      
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" style='width:100%'></td>
+            </tr>
+            <tr>
+                <td>Ranged:</td>
+                <td><input type="text" style='width:100%'></td>
+            </tr>
+            <tr>
+                <td>Damage:</td>
+                <td><input type="text" style='width:100%'></td>       
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <div float:left align="left">
+                        <button  mat-raised-button (click)="onClose()">Abort</button> 
+                    </div>
+                </td>
+                <td>                    
+                    <div float:left align="right">
+                        <button  mat-raised-button [mat-dialog-close]=enteredData>Accept</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
