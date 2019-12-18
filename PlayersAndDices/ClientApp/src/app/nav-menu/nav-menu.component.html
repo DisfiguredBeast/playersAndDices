@@ -1,6 +1,28 @@
-<button routerLink="the-dark-eye" mat-button [matMenuTriggerFor]="theDarkEye">The Dark Eye</button>
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #theDarkEye="matMenu">
-  <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
-  <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
-</mat-menu>
+<div class="container">
+  <div class="row nav-menu-row">
+    <div class="col-md-4">
+      <button mat-button [matMenuTriggerFor]="theDarkEyeMenu" class="nav-menu-main-button">The Dark Eye</button>
+      <mat-menu #theDarkEyeMenu="matMenu">
+        <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
+        <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
+        <button routerLink="adventures/new-adventure" [queryParams]="{game: 'the-dark-eye'}" mat-menu-item>New Adventure</button>
+      </mat-menu>
+    </div>
+
+    <div class="col-md-4">
+      <button mat-button [matMenuTriggerFor]="dungeonsDragonsMenu" class="nav-menu-main-button">Dungeons &amp; Dragons</button>
+      <mat-menu #dungeonsDragonsMenu="matMenu">
+        <button routerLink="dungeons-dragons/adventures" mat-menu-item>Adventures</button>
+        <button routerLink="dungeons-dragons/characters" mat-menu-item>Characters</button>
+      </mat-menu>
+    </div>
+
+    <div class="col-md-4">
+      <button mat-button [matMenuTriggerFor]="shadowrunMenu" class="nav-menu-main-button">Shadowrun</button>
+      <mat-menu #shadowrunMenu="matMenu">
+        <button routerLink="shadowrun/runs" mat-menu-item>Runs</button>
+        <button routerLink="shadowrun/characters" mat-menu-item>Characters</button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

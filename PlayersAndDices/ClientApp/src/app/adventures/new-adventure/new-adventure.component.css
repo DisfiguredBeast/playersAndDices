@@ -1,0 +1,39 @@
+.mat-icon {
+  vertical-align: middle;
+}
+
+.adventure-text-options {
+  background-color: white;
+  line-height: 16px;
+  padding: 2px 2px 2px 2px;
+  position: absolute;
+  top: -28px;
+}
+
+.adventure-text-option {
+  background-color: none;
+  cursor: pointer;
+}
+  .adventure-text-option:not(:last-child) {
+    border-right: 1px solid gray;
+  }
+
+.adventure-text-option-select {
+  border: none;
+  font-size: 16px;
+}
+
+.adventure-text-option-active {
+  background-color: lightgray;
+}
+
+  .adventure:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 7px;
+    margin-bottom: 15px;
+  }
+
+.adventure-input {
+  font-size: var(--font-size);
+  width: 100%;
+}
