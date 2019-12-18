@@ -2,6 +2,24 @@
   vertical-align: middle;
 }
 
+.adventure-settings-row {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+}
+
+.adventure-input {
+  border: none;
+  box-sizing: padding-box;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.adventure-variable-input {
+  font-size: var(--font-size);
+}
+
 .adventure-text-options {
   background-color: white;
   line-height: 16px;
@@ -32,8 +50,3 @@
     padding-bottom: 7px;
     margin-bottom: 15px;
   }
-
-.adventure-input {
-  font-size: var(--font-size);
-  width: 100%;
-}

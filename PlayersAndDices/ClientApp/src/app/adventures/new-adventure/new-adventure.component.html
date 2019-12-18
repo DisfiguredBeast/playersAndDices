@@ -1,37 +1,48 @@
 <div class="container adventure">
-    <div class="row adventure" *ngFor="let row of rows">
-      <div class="col-md-{{12 / row.cells.length}}" *ngFor="let cell of row.cells">
-        <div *ngIf="activeCell === cell" class="adventure-text-options">
-          <mat-icon class="adventure-text-option" [ngClass]="{'adventure-text-option-active': cell.bold}" (click)="cell.bold = !cell.bold">format_bold</mat-icon>
-          <mat-icon class="adventure-text-option" [ngClass]="{'adventure-text-option-active': cell.italic}" (click)="cell.italic = !cell.italic">format_italic</mat-icon>
-          <mat-icon class="adventure-text-option" [ngClass]="{'adventure-text-option-active': cell.underline}" (click)="cell.underline = !cell.underline">format_underline</mat-icon>
-          <select class="adventure-text-option adventure-text-option-select" [(ngModel)]="cell.fontSize">
-            <option>8px</option>
-            <option>10px</option>
-            <option>12px</option>
-            <option>14px</option>
-            <option>16px</option>
-            <option>18px</option>
-            <option>20px</option>
-            <option>24px</option>
-            <option>28px</option>
-            <option>32px</option>
-          </select>
-        </div>
-
-        <input *ngIf="!cell.multiline" class="adventure-input" matInput [(ngModel)]="cell.value" (focus)="activeCell = cell" (blur)="activeCell = cell" name="value" placeholder="{{cell.placeholder}}"
-               [style.fontSize]="cell.fontSize"
-               [style.fontStyle]="(cell.italic ? 'italic' : 'unset')"
-               [style.fontWeight]="(cell.bold ? 'bold' : 'normal')"
-               [style.textDecoration]="(cell.underline ? 'underline' : 'none')"
-               [style.border]="'none'" />
-
-        <textarea *ngIf="cell.multiline" class="adventure-input" matInput [(ngModel)]="cell.value" (focus)="activeCell = cell" (blur)="activeCell = cell" name="value" placeholder="{{cell.placeholder}}"
-                  [style.fontSize]="cell.fontSize"
-                  [style.fontStyle]="(cell.italic ? 'italic' : 'unset')"
-                  [style.fontWeight]="(cell.bold ? 'bold' : 'normal')"
-                  [style.textDecoration]="(cell.underline ? 'underline' : 'none')"
-                  [style.border]="'none'"></textarea>
-      </div>
+  <div class="row adventure-settings-row">
+    <div class="col-md-3">
+      <label for="adventure-name">Adventure Name</label>
     </div>
+    <div class="col-md-9">
+      <input id="adventure-name" class="adventure-input" matInput [(ngModel)]="adventure.name" placeholder="Adventure Name" />
+    </div>
+  </div>
+
+  <div class="row adventure" *ngFor="let row of adventure.rows">
+    <div class="col-md-{{12 / row.cells.length}}" *ngFor="let cell of row.cells">
+      <div *ngIf="activeCell === cell" class="adventure-text-options">
+        <mat-icon class="adventure-text-option" [ngClass]="{'adventure-text-option-active': cell.bold}" (click)="cell.bold = !cell.bold">format_bold</mat-icon>
+        <mat-icon class="adventure-text-option" [ngClass]="{'adventure-text-option-active': cell.italic}" (click)="cell.italic = !cell.italic">format_italic</mat-icon>
+        <mat-icon class="adventure-text-option" [ngClass]="{'adventure-text-option-active': cell.underline}" (click)="cell.underline = !cell.underline">format_underline</mat-icon>
+        <select class="adventure-text-option adventure-text-option-select" [(ngModel)]="cell.fontSize">
+          <option>8px</option>
+          <option>10px</option>
+          <option>12px</option>
+          <option>14px</option>
+          <option>16px</option>
+          <option>18px</option>
+          <option>20px</option>
+          <option>24px</option>
+          <option>28px</option>
+          <option>32px</option>
+        </select>
+      </div>
+
+      <input *ngIf="!cell.multiline" class="adventure-input adventure-variable-input" placeholder="{{cell.placeholder}}"
+             matInput [(ngModel)]="cell.value"
+             (focus)="activeCell = cell" (blur)="activeCell = cell"
+             [style.fontSize]="cell.fontSize"
+             [style.fontStyle]="(cell.italic ? 'italic' : 'unset')"
+             [style.fontWeight]="(cell.bold ? 'bold' : 'normal')"
+             [style.textDecoration]="(cell.underline ? 'underline' : 'none')" />
+
+      <textarea *ngIf="cell.multiline" class="adventure-input adventure-variable-input"  placeholder="{{cell.placeholder}}"
+                matInput [(ngModel)]="cell.value"
+                (focus)="activeCell = cell" (blur)="activeCell = cell" (keyup)="resizeTextArea($event)"
+                [style.fontSize]="cell.fontSize"
+                [style.fontStyle]="(cell.italic ? 'italic' : 'unset')"
+                [style.fontWeight]="(cell.bold ? 'bold' : 'normal')"
+                [style.textDecoration]="(cell.underline ? 'underline' : 'none')"></textarea>
+    </div>
+  </div>
 </div>
