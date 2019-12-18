@@ -1,28 +1,95 @@
-<div class="container">
-  <div class="row nav-menu-row">
-    <div class="col-md-4">
-      <button mat-button [matMenuTriggerFor]="theDarkEyeMenu" class="nav-menu-main-button">The Dark Eye</button>
-      <mat-menu #theDarkEyeMenu="matMenu">
-        <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
-        <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
-        <button routerLink="adventures/new-adventure" [queryParams]="{game: 'the-dark-eye'}" mat-menu-item>New Adventure</button>
-      </mat-menu>
-    </div>
+<div>
+<button routerLink="the-dark-eye" mat-button [matMenuTriggerFor]="theDarkEye">The Dark Eye</button>
 
-    <div class="col-md-4">
-      <button mat-button [matMenuTriggerFor]="dungeonsDragonsMenu" class="nav-menu-main-button">Dungeons &amp; Dragons</button>
-      <mat-menu #dungeonsDragonsMenu="matMenu">
-        <button routerLink="dungeons-dragons/adventures" mat-menu-item>Adventures</button>
-        <button routerLink="dungeons-dragons/characters" mat-menu-item>Characters</button>
-      </mat-menu>
-    </div>
+<button mat-button [matMenuTriggerFor]="theDarkEye">Menu</button>
+<mat-menu #theDarkEye="matMenu">
+  <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
+  <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
+</mat-menu>
 
-    <div class="col-md-4">
-      <button mat-button [matMenuTriggerFor]="shadowrunMenu" class="nav-menu-main-button">Shadowrun</button>
-      <mat-menu #shadowrunMenu="matMenu">
-        <button routerLink="shadowrun/runs" mat-menu-item>Runs</button>
-        <button routerLink="shadowrun/characters" mat-menu-item>Characters</button>
-      </mat-menu>
-    </div>
-  </div>
+
+
+<!-- this button activates the menu called charbilder -->
+<button mat-icon-button [matMenuTriggerFor]="charbuilder" >
+  <mat-icon>accessibility</mat-icon>
+</button>
+
+<mat-menu #charbuilder="matMenu">
+  
+  <button mat-menu-item routerLink="the-dark-eye/adventures">   
+    <mat-icon>calendar_today</mat-icon>       
+    <span>Advantures</span>
+</button>
+      <button mat-menu-item routerLink="the-dark-eye/characters">   
+          <mat-icon>perm_identity</mat-icon>       
+          <span>Characters</span>
+      </button>
+
+  
+  <button mat-menu-item routerLink="the-dark-eye/weapons" [matMenuTriggerFor]="weaponsMenu">
+      <mat-icon>rowing</mat-icon>
+      <span>Weapons</span>
+  </button>
+ <button mat-menu-item [matMenuTriggerFor]="armorMenu">
+     <mat-icon></mat-icon>
+     <span>Armor</span>
+ </button>
+ <button mat-menu-item [matMenuTriggerFor]="asseccoiresMenu">
+     <mat-icon>
+     </mat-icon>
+     <span>Assecoires</span>
+ </button>
+</mat-menu>
+
+<!-- Weapons Sub-Menu -->
+<mat-menu #weaponsMenu="matMenu">
+  <button mat-menu-item routerLink="the-dark-eye/weapons/swords">
+      <mat-icon>build</mat-icon>                
+      <span>Swords</span>
+  </button>
+  <button mat-menu-item routerLink="the-dark-eye/weapons/axes">
+      <mat-icon>play_for_work</mat-icon>                
+      <span>Axes</span>
+  </button>
+  <button mat-menu-item routerLink="the-dark-eye/weapons/ranged">
+      <mat-icon>restore </mat-icon>                
+      <span>Ranged</span>
+  </button>
+</mat-menu>
+
+<!-- Asseccoires Sub-Menu -->
+<mat-menu #asseccoiresMenu="matMenu">
+  <button mat-menu-item>
+      <mat-icon></mat-icon>
+      <span>Rings</span>
+  </button>
+  <button mat-menu-item>
+      <mat-icon></mat-icon>
+      <span>Bracelets</span>
+  </button>
+
+</mat-menu>
+
+<!-- Armor Sub-Menu -->
+<mat-menu #armorMenu="matMenu">
+  <button mat-menu-item>
+      <mat-icon></mat-icon>
+      <span>Head</span>
+  </button>
+  <button mat-menu-item>
+      <mat-icon></mat-icon>
+      <span>Chest</span>
+  </button>
+  <button mat-menu-item>
+      <mat-icon></mat-icon>
+      <span>Legs</span>
+  </button>
+  <button mat-menu-item>
+      <mat-icon></mat-icon>
+      <span>Hands</span>
+  </button>
+</mat-menu>
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 </div>
