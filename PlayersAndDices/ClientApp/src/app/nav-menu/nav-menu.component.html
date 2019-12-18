@@ -1,95 +1,84 @@
-<div>
-<button routerLink="the-dark-eye" mat-button [matMenuTriggerFor]="theDarkEye">The Dark Eye</button>
+<div class="nav-menu-row">
+  <button mat-button [matMenuTriggerFor]="theDarkEye">The Dark Eye</button>
+  <mat-menu #theDarkEye="matMenu">
+    <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
+    <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
+    <button routerLink="new-adventure" [queryParams]="{'game': 'theDarkEye'}" mat-menu-item>New Adventure</button>
+  </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="theDarkEye">Menu</button>
-<mat-menu #theDarkEye="matMenu">
-  <button routerLink="the-dark-eye/adventures" mat-menu-item>Adventures</button>
-  <button routerLink="the-dark-eye/characters" mat-menu-item>Characters</button>
-</mat-menu>
+  <!-- this button activates the menu called charbilder -->
+  <button mat-icon-button [matMenuTriggerFor]="charbuilder" >
+    <mat-icon>accessibility</mat-icon>
+  </button>
 
-
-
-<!-- this button activates the menu called charbilder -->
-<button mat-icon-button [matMenuTriggerFor]="charbuilder" >
-  <mat-icon>accessibility</mat-icon>
-</button>
-
-<mat-menu #charbuilder="matMenu">
-  
-  <button mat-menu-item routerLink="the-dark-eye/adventures">   
-    <mat-icon>calendar_today</mat-icon>       
-    <span>Advantures</span>
-</button>
-      <button mat-menu-item routerLink="the-dark-eye/characters">   
-          <mat-icon>perm_identity</mat-icon>       
-          <span>Characters</span>
-      </button>
-
-  
-  <button mat-menu-item routerLink="the-dark-eye/weapons" [matMenuTriggerFor]="weaponsMenu">
+  <mat-menu #charbuilder="matMenu">
+    <button mat-menu-item routerLink="the-dark-eye/adventures">   
+      <mat-icon>calendar_today</mat-icon>       
+      <span>Advantures</span>
+    </button>
+    <button mat-menu-item routerLink="the-dark-eye/characters">   
+        <mat-icon>perm_identity</mat-icon>       
+        <span>Characters</span>
+    </button>
+    <button mat-menu-item routerLink="the-dark-eye/weapons" [matMenuTriggerFor]="weaponsMenu">
       <mat-icon>rowing</mat-icon>
       <span>Weapons</span>
-  </button>
- <button mat-menu-item [matMenuTriggerFor]="armorMenu">
-     <mat-icon></mat-icon>
-     <span>Armor</span>
- </button>
- <button mat-menu-item [matMenuTriggerFor]="asseccoiresMenu">
-     <mat-icon>
-     </mat-icon>
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="armorMenu">
+      <mat-icon></mat-icon>
+      <span>Armor</span>
+    </button>
+   <button mat-menu-item [matMenuTriggerFor]="asseccoiresMenu">
      <span>Assecoires</span>
- </button>
-</mat-menu>
+   </button>
+  </mat-menu>
 
-<!-- Weapons Sub-Menu -->
-<mat-menu #weaponsMenu="matMenu">
-  <button mat-menu-item routerLink="the-dark-eye/weapons/swords">
-      <mat-icon>build</mat-icon>                
-      <span>Swords</span>
-  </button>
-  <button mat-menu-item routerLink="the-dark-eye/weapons/axes">
-      <mat-icon>play_for_work</mat-icon>                
-      <span>Axes</span>
-  </button>
-  <button mat-menu-item routerLink="the-dark-eye/weapons/ranged">
-      <mat-icon>restore </mat-icon>                
-      <span>Ranged</span>
-  </button>
-</mat-menu>
+  <!-- Weapons Sub-Menu -->
+  <mat-menu #weaponsMenu="matMenu">
+    <button mat-menu-item routerLink="the-dark-eye/weapons/swords">
+        <mat-icon>build</mat-icon>                
+        <span>Swords</span>
+    </button>
+    <button mat-menu-item routerLink="the-dark-eye/weapons/axes">
+        <mat-icon>play_for_work</mat-icon>                
+        <span>Axes</span>
+    </button>
+    <button mat-menu-item routerLink="the-dark-eye/weapons/ranged">
+        <mat-icon>restore </mat-icon>                
+        <span>Ranged</span>
+    </button>
+  </mat-menu>
 
-<!-- Asseccoires Sub-Menu -->
-<mat-menu #asseccoiresMenu="matMenu">
-  <button mat-menu-item>
-      <mat-icon></mat-icon>
-      <span>Rings</span>
-  </button>
-  <button mat-menu-item>
-      <mat-icon></mat-icon>
-      <span>Bracelets</span>
-  </button>
+  <!-- Asseccoires Sub-Menu -->
+  <mat-menu #asseccoiresMenu="matMenu">
+    <button mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Rings</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Bracelets</span>
+    </button>
 
-</mat-menu>
+  </mat-menu>
 
-<!-- Armor Sub-Menu -->
-<mat-menu #armorMenu="matMenu">
-  <button mat-menu-item>
-      <mat-icon></mat-icon>
-      <span>Head</span>
-  </button>
-  <button mat-menu-item>
-      <mat-icon></mat-icon>
-      <span>Chest</span>
-  </button>
-  <button mat-menu-item>
-      <mat-icon></mat-icon>
-      <span>Legs</span>
-  </button>
-  <button mat-menu-item>
-      <mat-icon></mat-icon>
-      <span>Hands</span>
-  </button>
-</mat-menu>
-
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+  <!-- Armor Sub-Menu -->
+  <mat-menu #armorMenu="matMenu">
+    <button mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Head</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Chest</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Legs</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Hands</span>
+    </button>
+  </mat-menu>
 </div>

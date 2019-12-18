@@ -33,6 +33,7 @@ import { SwordsComponent } from './the-dark-eye/weapons/swords/swords.component'
 import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
 import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
 import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dialog/edit-ranged-dialog';
+import { NewAdventureComponent } from './adventures/new-adventure/new-adventure.component';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dial
         CounterComponent,
         FetchDataComponent,
         DatabaseComponent,
+        NewAdventureComponent,
         TheDarkEyeCharactersComponent,
         TheDarkEyeCharacterCreationComponent,
         WeaponsComponent,
@@ -66,18 +68,19 @@ import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dial
       MatDialogModule ,
 
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-      { path: 'database', component: DatabaseComponent },
-      { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
-      { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
-      { path: "the-dark-eye/weapons", component: WeaponsComponent, 
-          children: [
-            {path: "swords", component: SwordsComponent},
-            {path: "axes", component : AxesComponent},
-            {path: "ranged", component : RangedComponent}
-          ]}
+        { path: '', component: HomeComponent, pathMatch: 'full' },
+        { path: 'counter', component: CounterComponent },
+        { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+        { path: 'database', component: DatabaseComponent },
+        { path: "new-adventure", component: NewAdventureComponent },
+        { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
+        { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+        { path: "the-dark-eye/weapons", component: WeaponsComponent, 
+            children: [
+              {path: "swords", component: SwordsComponent},
+              {path: "axes", component : AxesComponent},
+              {path: "ranged", component : RangedComponent}
+            ]}
     ]),
     BrowserAnimationsModule,
     MatListModule,
