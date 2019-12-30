@@ -1,1 +1,16 @@
-<p>edit-ranged-dialog works!</p>
+<form novalidate (ngSubmit)="saveRanged(form.value)" #form="ngForm">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" [(ngModel)]="ranged.name" name="beschreibung" required/>
+    </div>
+    <select name="type" [(ngModel)]="ranged.type" class="form-control">
+        <option *ngFor="let t of types">{{t}}</option>
+    </select>
+    <div class="form-group">
+        <label>Beschreibung</label>
+        <textarea class="form-control" [(ngModel)]="ranged.description" name="description"></textarea>
+    </div>
+    <button mat-raised-button type="submit" ngModel
+        [disabled]="!form.valid">Speichern
+    </button>
+</form>
