@@ -47,8 +47,8 @@ export class GameOfLifeComponent implements OnInit {
   createNewBoard(){
     this.board = [];
     for (let x = 0; x < this.tableWidth; x ++){
+        this.board[x] = [];
         for (let y = 0; y < this.tableHeigth; y++){
-          this.board[x] = [];
           this.board[x][y] = false;
         }
     }

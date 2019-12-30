@@ -1,22 +1,21 @@
 <div>
 
-    Height: 
-    <select #height (change)="onHeigthChange(height.value)">
-            <option *ngFor="let i of selectHeigth(2*64); let value = index" >{{value}}</option>
-    </select>
     Width: 
+    <select #height (change)="onHeigthChange(height.value)">
+            <option *ngFor="let y of selectHeigth(2*64); let value = index" >{{value}}</option>
+    </select>
+    Heigth: 
     <select #width (change)="onWidthChange(width.value)">
-            <option *ngFor="let i of selectWidth(2*64); let value = index" >{{value}}</option>
+            <option *ngFor="let x of selectWidth(2*64); let value = index" >{{value}}</option>
     </select>
 </div>
 <table border="1">
-    <tr *ngFor="let i of board; let rowIndex = index" 
+    <tr *ngFor="let y of board; let rowIndex = index" 
         height=15>
         <td 
-            *ngFor="let i of board; let columnIndex = index"  
+            *ngFor="let x of board[rowIndex]; let columnIndex = index"  
             class ="cell"
             width = 15
-            id = {{rowIndex}}.{{columnIndex}}
             (click)="onCellClick(rowIndex, columnIndex)"
             [ngStyle]="getCurrentStyles(rowIndex, columnIndex)">
         </td>
