@@ -34,6 +34,7 @@ import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
 import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
 import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dialog/edit-ranged-dialog';
 import { NewAdventureComponent } from './adventures/new-adventure/new-adventure.component';
+import { GameOfLifeComponent } from './the-dark-eye/weapons/game-of-life/game-of-life.component';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { NewAdventureComponent } from './adventures/new-adventure/new-adventure.
         SwordsComponent,
         AxesComponent,
         RangedComponent,
-        EditRangedDialog
+        EditRangedDialog,
+        GameOfLifeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -75,6 +77,7 @@ import { NewAdventureComponent } from './adventures/new-adventure/new-adventure.
         { path: "new-adventure", component: NewAdventureComponent },
         { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
         { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+        { path: "gameOfLife", component: GameOfLifeComponent },
         { path: "the-dark-eye/weapons", component: WeaponsComponent, 
             children: [
               {path: "swords", component: SwordsComponent},
