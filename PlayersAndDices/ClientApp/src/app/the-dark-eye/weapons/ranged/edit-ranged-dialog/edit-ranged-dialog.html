@@ -22,12 +22,12 @@
       <div>
         <div class="form-group" style="display: inline-block; margin-right: 10px;">
             <label for="range">Range</label>
-            <input type="text" class="form-control" id="range" required
+            <input type="number" class="form-control" id="range" required
             [(ngModel)]="ranged.range" name="range">
         </div>
         <div class="form-group" style="display: inline-block; margin-left: 10px;">
             <label for="damage">Damage</label>
-            <input type="text" class="form-control" id="damage" required
+            <input type="number" class="form-control" id="damage" required
             [(ngModel)]="ranged.damage" name="damage">
         </div>
     </div>
@@ -38,6 +38,6 @@
       </div>
 
       <button type="submit" class="btn btn-success" [disabled]="!rangedForm.form.valid">Submit</button>
-      <button (click)="onClose()" style="float: right;" class="btn btn-danger">Close</button>    
+      <button type="button" (click)="onClose()" style="float: right;" class="btn btn-danger">Close</button>    
     </form>
 </div>

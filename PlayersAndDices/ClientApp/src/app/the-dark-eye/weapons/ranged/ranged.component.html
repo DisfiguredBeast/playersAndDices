@@ -1,4 +1,5 @@
-<h2><mat-icon>restore</mat-icon> Ranged wepons</h2>
+<div class="center">
+<h2><mat-icon>restore</mat-icon> Ranged weapons</h2>
 <br>
 <div>
 <table #rangedTable mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -12,6 +13,12 @@
           <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
       
+        <!-- Typ Column -->
+        <ng-container matColumnDef="typ">
+          <th mat-header-cell *matHeaderCellDef> Typ </th>
+          <td mat-cell *matCellDef="let element"> {{element.typ}} </td>
+        </ng-container>
+
         <!-- Range Column -->
         <ng-container matColumnDef="range">
           <th mat-header-cell *matHeaderCellDef> Range </th>
@@ -23,14 +30,36 @@
           <th mat-header-cell *matHeaderCellDef> Dmg </th>
           <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
         </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef width=45%> Description </th>
+          <td mat-cell *matCellDef="let element"> 
+            {{element.description.length > 180 
+              ? element.description.substring(0,180) + "..." 
+              : element.description}}
+            </td>
+        </ng-container>
+
+         <!-- Edit - Button Column-->
+         <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef width=5%></th>
+          <td align="right" mat-cell *matCellDef="let element"><button style="margin-right: 10px;" (click)="onEdit(element)" class="btn btn-primary">Edit</button></td>
+        </ng-container>
+
+        <!-- Remove - Button Column-->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef width=5%></th>
+          <td align="right" mat-cell *matCellDef="let element"><button (click)="onDelete(element)" class="btn btn-danger">Delete</button></td>
+        </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       <br>
       <div align="right">
-          <button mat-raised-button (click)="openDialog()">Add range weapon</button>
+          <button mat-raised-button class="btn-primary" (click)="openDialog()">Add range weapon</button>
       </div>
-    </div>
-      
+    </div> 
+</div>
       

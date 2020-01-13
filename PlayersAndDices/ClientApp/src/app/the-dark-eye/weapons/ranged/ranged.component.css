@@ -1,3 +1,9 @@
 table {
     width: 100%;
   }
+
+.center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+  }
