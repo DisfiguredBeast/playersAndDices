@@ -1,16 +1,43 @@
-<form novalidate (ngSubmit)="saveRanged(form.value)" #form="ngForm">
+<div class="container">
+    <h3>Add or edit a ranged weapon</h3>
+
+    <form (ngSubmit)="onSubmit()" #rangedForm="ngForm">
+
     <div class="form-group">
-        <label>Name</label>
-        <input class="form-control" type="text" [(ngModel)]="ranged.name" name="beschreibung" required/>
+        <label for="typ">Ranged Typ</label>
+        <select class="form-control" id="typ" required
+        [(ngModel)]="ranged.typ" name="rangedTyp">
+          <option *ngFor="let typ of rangedTypes" [value]="typ">{{typ}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required
+        [(ngModel)]="ranged.name" name="name" #name="ngModel">
+      </div>
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Name is required!
+      </div>
+      <div>
+        <div class="form-group" style="display: inline-block; margin-right: 10px;">
+            <label for="range">Range</label>
+            <input type="text" class="form-control" id="range" required
+            [(ngModel)]="ranged.range" name="range">
+        </div>
+        <div class="form-group" style="display: inline-block; margin-left: 10px;">
+            <label for="damage">Damage</label>
+            <input type="text" class="form-control" id="damage" required
+            [(ngModel)]="ranged.damage" name="damage">
+        </div>
     </div>
-    <select name="type" [(ngModel)]="ranged.type" class="form-control">
-        <option *ngFor="let t of types">{{t}}</option>
-    </select>
-    <div class="form-group">
-        <label>Beschreibung</label>
-        <textarea class="form-control" [(ngModel)]="ranged.description" name="description"></textarea>
-    </div>
-    <button mat-raised-button type="submit" ngModel
-        [disabled]="!form.valid">Speichern
-    </button>
-</form>
+      <div class="form-group">
+        <label for="description">Beschreibung</label>
+        <textarea type="text-area" class="form-control" id="description"
+        [(ngModel)]="ranged.description" name ="description"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!rangedForm.form.valid">Submit</button>
+      <button (click)="onClose()" style="float: right;" class="btn btn-danger">Close</button>    
+    </form>
+</div>

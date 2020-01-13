@@ -1,12 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { RangedWeapon } from '../ranged.component';
-import { FormsModule } from '@angular/forms';
-
-export interface Bow{
-  name : string,
-  description : string
-}
+import { Ranged, RangedType } from './ranged';
 
 @Component({
   selector: 'app-edit-ranged-dialog',
@@ -17,10 +12,9 @@ export interface Bow{
 
 export class EditRangedDialog {
 
-  types:string[] = ["asdf", "bcdef"];
-  ranged : Bow = {name:"", description:""};
-
-  enteredData : any;
+  ranged = new Ranged("magic bow", RangedType.Longbow,"fires fire arrows");
+  rangedTypes = [RangedType.Longbow, RangedType.Shortbow, RangedType.Crossbow, RangedType.ThrowingKnife];
+  
   constructor (public dialogRef: MatDialogRef<EditRangedDialog>,
         @Inject(MAT_DIALOG_DATA) public data: RangedWeapon) { 
          
@@ -28,14 +22,12 @@ export class EditRangedDialog {
 
   ngOnInit() {
   }
-  
-  saveRanged(value:any){
-    console.log(value);
+
+  onSubmit(value : any) : void {
+    this.dialogRef.close(this.ranged);
   }
 
   onClose() : void {
-    this.enteredData = {name: "MOAB", range: 42, damage: 1337};
     this.dialogRef.close(); 
   }
-
 }
