@@ -5,6 +5,7 @@ import { MatTableDataSource, MatTable } from '@angular/material';
 import { of, Observable } from 'rxjs';
 import { RangedWeapon, RangedType } from './RangedWeapon';
 import { throwIfEmpty } from 'rxjs/operators';
+import { TheDarkEyeService } from '../../services/the-dark-eye.service';
 
 @Component({
   selector: 'app-ranged',
@@ -18,7 +19,7 @@ export class RangedComponent implements OnInit, AfterViewInit {
   dataSource : Observable<RangedWeapon[]>;
   rawData : RangedWeapon[];
   
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog, private service : TheDarkEyeService) { 
     
     this.rawData = ([
       {id: 1, name: 'bow of shorty', typ: RangedType.Shortbow, description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.", range: 20, damage: 99},
@@ -83,6 +84,12 @@ export class RangedComponent implements OnInit, AfterViewInit {
   getDescription(element : RangedWeapon) : string {
     return element.description.length > 50 ? 
       element.description.substring(0,50) + "..." : element.description; 
+  }
+
+  onRefresh() {
+   this.service.getWeapon().subscribe(data => {
+      console.log(JSON.stringify(data));
+    })
   }
 
   refreshTable() : void {

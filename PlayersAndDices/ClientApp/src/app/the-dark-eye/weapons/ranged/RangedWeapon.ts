@@ -1,5 +1,14 @@
 
-export class RangedWeapon {
+export interface IRangedWeapon {
+  id : number;
+  name: string;
+  typ: RangedType;
+  range: number;
+  damage: number;
+  description?: string;
+}
+
+export class RangedWeapon implements IRangedWeapon {
   id : number;
   name: string;
   typ: RangedType;

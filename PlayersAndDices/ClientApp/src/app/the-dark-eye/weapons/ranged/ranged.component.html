@@ -57,9 +57,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       <br>
-      <div align="right">
-          <button mat-raised-button class="btn-primary" (click)="openDialog()">Add range weapon</button>
-      </div>
-    </div> 
-</div>
+
+      <button mat-raised-button class="btn-primary" (click)="onRefresh()">Refresh</button>
+      <button mat-raised-button class="btn-primary" style="float: right;" (click)="openDialog()">Add range weapon</button>
       
