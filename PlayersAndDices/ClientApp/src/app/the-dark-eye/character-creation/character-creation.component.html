@@ -1,3 +1,48 @@
-<h1>Heroes</h1>
+<div class="container">
 
-<div *ngFor="let char of characters">{{char.name}}</div>
+  <div class="row">
+    <div class="col-md-2 experience-level-centered">&nbsp;</div>
+    <div class="col-md-2 experience-level-centered">Adventure Points</div>
+    <div class="col-md-1 experience-level-centered">Attribute Max</div>
+    <div class="col-md-1 experience-level-centered">Talent Max</div>
+    <div class="col-md-1 experience-level-centered">Fighting Skill Max</div>
+    <div class="col-md-1 experience-level-centered">Max Attribute Sum</div>
+    <div class="col-md-1 experience-level-centered">Max Spells</div>
+    <div class="col-md-1 experience-level-centered">thereof foreign</div>
+    <div class="col-md-2 experience-level-centered">&nbsp;</div>
+  </div>
+  <a *ngFor="let experienceLevel of experienceLevels">
+    <div class="row">
+      <div class="col-md-2 experience-level-centered">{{experienceLevel.name}}</div>
+      <div class="col-md-2 experience-level-centered">{{experienceLevel.adventurePoints}} AP</div>
+      <div class="col-md-1 experience-level-centered">{{experienceLevel.maxAttribute}}</div>
+      <div class="col-md-1 experience-level-centered">{{experienceLevel.maxTalent}}</div>
+      <div class="col-md-1 experience-level-centered">{{experienceLevel.maxFightSkill}}</div>
+      <div class="col-md-1 experience-level-centered">{{experienceLevel.maxAttributeSum}}</div>
+      <div class="col-md-1 experience-level-centered">{{experienceLevel.maxSpells}}</div>
+      <div class="col-md-1 experience-level-centered">{{experienceLevel.maxForeignSpells}}</div>
+      <div class="col-md-2 experience-level-centered">&nbsp;</div>
+    </div>
+  </a>
+
+  <ng-container *ngIf="selectedExperienceLevel">
+    <div class="row">
+      <div class="col-md-1 attribute-col">MU</div>
+      <div class="col-md-1 attribute-col">IN</div>
+      <div class="col-md-1 attribute-col">KL</div>
+      <div class="col-md-1 attribute-col">FF</div>
+      <div class="col-md-1 attribute-col">GE</div>
+      <div class="col-md-1 attribute-col">KO</div>
+      <div class="col-md-1 attribute-col">KK</div>
+    </div>
+    <div class="row">
+      <div class="col-md-1 attribute-col">MU</div>
+      <div class="col-md-1 attribute-col">IN</div>
+      <div class="col-md-1 attribute-col">KL</div>
+      <div class="col-md-1 attribute-col">FF</div>
+      <div class="col-md-1 attribute-col">GE</div>
+      <div class="col-md-1 attribute-col">KO</div>
+      <div class="col-md-1 attribute-col">KK</div>
+    </div>
+  </ng-container>
+</div>

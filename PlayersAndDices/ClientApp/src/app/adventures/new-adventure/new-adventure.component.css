@@ -8,26 +8,6 @@
   padding-bottom: 14px;
 }
 
-.adventure-input {
-  border: none;
-  box-sizing: padding-box;
-  display: block;
-  overflow: hidden;
-  width: 100%;
-}
-
-.adventure-variable-input {
-  font-size: var(--font-size);
-}
-
-.adventure-text-options {
-  background-color: white;
-  line-height: 16px;
-  padding: 2px 2px 2px 2px;
-  position: absolute;
-  top: -28px;
-}
-
 .adventure-text-option {
   background-color: none;
   cursor: pointer;
