@@ -11,6 +11,11 @@ export class AuthorizeInterceptor implements HttpInterceptor {
   constructor(private authorize: AuthorizeService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (req.url.includes(":1234"))
+    {
+      return next.handle(req);
+    }
+    console.log(JSON.stringify(req));
     return this.authorize.getAccessToken()
       .pipe(mergeMap(token => this.processRequestWithToken(token, req, next)));
   }

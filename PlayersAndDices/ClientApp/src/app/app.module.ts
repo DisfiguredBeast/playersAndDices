@@ -11,7 +11,6 @@ import { MatMenuModule } from "@angular/material/menu"
 import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatRippleModule } from "@angular/material/"
 import { MatSidenavContainer, MatSidenav, MatSidenavContent } from "@angular/material/sidenav"
-import { MatSelectModule } from "@angular/material/select"
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
@@ -35,9 +34,7 @@ import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
 import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
 import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dialog/edit-ranged-dialog';
 import { NewAdventureComponent } from './adventures/new-adventure/new-adventure.component';
-import { NewAdventureImageComponent } from './adventures/new-adventure/new-adventure-Image.component';
-import { NewAdventureTextComponent } from './adventures/new-adventure/new-adventure-text.component';
-import { DragAndDropDirective } from './directives/drag-and-drop/drag-and-drop.directive';
+import { GameOfLifeComponent } from './the-dark-eye/weapons/game-of-life/game-of-life.component';
 
 @NgModule({
     declarations: [
@@ -50,8 +47,6 @@ import { DragAndDropDirective } from './directives/drag-and-drop/drag-and-drop.d
         FetchDataComponent,
         DatabaseComponent,
         NewAdventureComponent,
-        NewAdventureImageComponent,
-        NewAdventureTextComponent,
         TheDarkEyeCharactersComponent,
         TheDarkEyeCharacterCreationComponent,
         WeaponsComponent,
@@ -59,8 +54,7 @@ import { DragAndDropDirective } from './directives/drag-and-drop/drag-and-drop.d
         AxesComponent,
         RangedComponent,
         EditRangedDialog,
-
-        DragAndDropDirective
+        GameOfLifeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -69,12 +63,11 @@ import { DragAndDropDirective } from './directives/drag-and-drop/drag-and-drop.d
       ApiAuthorizationModule,
       MatButtonModule,
       MatMenuModule,
-      MatSelectModule,
       MatSnackBarModule,
       MatToolbarModule,
       MatIconModule,
       MatTableModule,
-      MatDialogModule,
+      MatDialogModule ,
 
     RouterModule.forRoot([
         { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -84,6 +77,7 @@ import { DragAndDropDirective } from './directives/drag-and-drop/drag-and-drop.d
         { path: "new-adventure", component: NewAdventureComponent },
         { path: "the-dark-eye/characters", component: TheDarkEyeCharactersComponent },
         { path: "the-dark-eye/characters/creation", component: TheDarkEyeCharacterCreationComponent },
+        { path: "gameOfLife", component: GameOfLifeComponent },
         { path: "the-dark-eye/weapons", component: WeaponsComponent, 
             children: [
               {path: "swords", component: SwordsComponent},
