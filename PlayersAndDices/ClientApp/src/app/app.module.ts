@@ -34,7 +34,10 @@ import { AxesComponent } from './the-dark-eye/weapons/axes/axes.component';
 import { RangedComponent } from './the-dark-eye/weapons/ranged/ranged.component';
 import { EditRangedDialog } from './the-dark-eye/weapons/ranged/edit-ranged-dialog/edit-ranged-dialog';
 import { NewAdventureComponent } from './adventures/new-adventure/new-adventure.component';
+import { NewAdventureImageComponent } from './adventures/new-adventure/new-adventure-image.component';
+import { NewAdventureTextComponent } from './adventures/new-adventure/new-adventure-text.component';
 import { GameOfLifeComponent } from './the-dark-eye/weapons/game-of-life/game-of-life.component';
+import { DragAndDropDirective } from './directives/drag-and-drop/drag-and-drop.directive'
 
 @NgModule({
     declarations: [
@@ -46,7 +49,10 @@ import { GameOfLifeComponent } from './the-dark-eye/weapons/game-of-life/game-of
         CounterComponent,
         FetchDataComponent,
         DatabaseComponent,
+        DragAndDropDirective,
         NewAdventureComponent,
+        NewAdventureImageComponent,
+        NewAdventureTextComponent,
         TheDarkEyeCharactersComponent,
         TheDarkEyeCharacterCreationComponent,
         WeaponsComponent,
